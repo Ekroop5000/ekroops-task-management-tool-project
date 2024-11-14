@@ -40,9 +40,7 @@
 
         <!-- Go back button, initially hidden -->
         <div id="goBackButtonContainer">
-            <button id="goBackButton" style="display: none;" onclick="window.location.href = '/tasks'">
-                Go back to the "Filter Your Tasks & Your List Of Tasks Page"
-            </button>
+            <button id="goBackButton" onclick="alert('You will now be directed to the Filter Your Tasks & Your List Of Tasks Page'); window.location.href = '/tasks'">Go back to the "Filter Your Tasks & Your List Of Tasks Page"</button>
         </div>
     </div>
 
@@ -139,8 +137,13 @@
             try {
                 const response = await fetch('/api/tasks/exist');
                 const data = await response.json();
+                const goBackButton = document.getElementById("goBackButton");
+
+                // Show the "Go back" button only if there are tasks
                 if (data.tasksExist) {
-                    document.getElementById("goBackButton").style.display = "block";
+                    goBackButton.style.display = "block";
+                } else {
+                    goBackButton.style.display = "none"; // Hide if no tasks
                 }
             } catch (error) {
                 console.error('Error checking task existence:', error);

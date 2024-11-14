@@ -36,7 +36,7 @@
     <div id="tasks"></div>
 
     <!-- Go back to Task Creation Page Button -->
-    <button class="goBackWindowButton1" onclick="window.location.href = '/'">Go back to the "Task Management Tool Page"</button>
+    <button class="goBackWindowButton1" onclick="alert('You will now be directed to the Task Management Tool Page'); window.location.href = '/'">Go back to the "Task Management Tool Page"</button>
 
     <style>
         body, html {
@@ -152,14 +152,14 @@
                         <button type="submit">Update Your Task</button>
                         <button type="button" onclick="deleteTask('${task._id}', '${task.title}')">Delete Your Task</button>
                         <!-- Second "Go back" button (inside task box) -->
-                        <button class="goBackWindowButton2" onclick="window.location.href = '/'">Go back to the "Task Management Tool Page"</button>
+                        <button class="goBackWindowButton2" onclick="alert('You will now be directed to the Task Management Tool Page'); window.location.href = '/'">Go back to the "Task Management Tool Page"</button>
                     </form>
                 </div>
             `).join('');
         }
-
+        
         async function updateTask(event, taskId) {
-            event.preventDefault();  // Prevent the default form submission
+            event.preventDefault(); // Prevent the default form submission
 
             const form = document.getElementById(`edit-task-form-${taskId}`);
             const formData = new FormData(form);
@@ -179,8 +179,11 @@
                 });
 
                 if (response.ok) {
-                    console.log('Task updated successfully');
-                    applyFilters();  // Refresh task list with updated data
+                    // Alert the user of successful update
+                    alert(`The "${updatedTask.title}" task has been updated successfully!`);
+
+                    // Redirect back to the "Filter Your Tasks & Your List Of Tasks Page"
+                    window.location.href = '/tasks';
                 } else {
                     console.error('Failed to update task');
                     alert('Error updating task. Please try again.');
