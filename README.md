@@ -11,6 +11,8 @@ Ekroop's Task Management Tool Project is a full-stack web application designed f
 - **UI Design**: Clean, responsive interface with interactive elements for a smooth user experience.
 - **Notifications**: Alerts and prompts for task updates, filtering success, and task deletions.
 
+## Technologies Used
+
 ## Project Structure
 ekroops-task-management-tool-project/
 ├── models/
