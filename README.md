@@ -67,7 +67,7 @@ ekroops-task-management-tool-project/
 └── server.js                     # Main server setup with Node.js and Express
 
 ## Setup Instructions
-To set up and run the project locally, follow these steps:
+To set up and run the project locally, follow all of these steps:
 ### Make sure you are in the right Project Directory:
 If you are not in the right Project Directory, which should be ekroops-task-management-tool-project, then you need to run the following command: cd ekroops-task-management-tool-project
 ### Clone the Repository:
