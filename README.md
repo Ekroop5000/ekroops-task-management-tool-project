@@ -78,7 +78,7 @@ If you have to do so, you have to install all of the dependencies, which include
 If you have to do so, you will have to create a .env file in the project root, and then copy and paste the following MONGODB_URI inside the .env file: MONGODB_URI=mongodb+srv://ekroop2005:TX7m9QzjOQ7Vokro@cluster0.so6df.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0                                                    
                                                                                                                                                                                   The above MONGODB_URI is a connection string that specifies the path to my MongoDB database. It's used by the application to connect to the MongoDB database instance and is essential for enabling database operations.
 ### Start the server:
-To start the server, run the following command in the right Project Directory, which should be ekroops-task-management-tool-project: node server.js
+To start the server, run the following command in the right Project Directory, which should be ekroops-task-management-tool-project: nodemon server.js
 ### Access the Application:
 Open a tab on your browser and navigate to http://localhost:5000 (which is the specified port in the server.js file) to start using the Task Management Tool Application by managing the tasks, such as creating, reading, updating, and deleting the tasks, and other sorts of things that are available to do on the Task Management Tool Application.
 
