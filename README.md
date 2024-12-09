@@ -8,7 +8,7 @@ Ekroop's Task Management Tool Project is a full-stack web application designed f
 ## Features
 
 ### Authentication:
-- **Sign-Up**: New users can create an account using their email, username, and password.
+- **Sign Up**: New users can create an account using their email, username, and password.
 - **Login**: Existing users can log in using their username and password.
 
 ### Task Management:
@@ -94,7 +94,7 @@ ekroops-task-management-tool-project/
 │   ├── taskRoutes.js             # API endpoints for task operations
 ├── scripts/
 │   ├── login.js                  # Frontend JS for the login page
-│   ├── signup.js                 # Frontend JS for the sign-up page
+│   ├── signup.js                 # Frontend JS for the sign up page
 ├── utils/
 │   └── database.js               # Centralized MongoDB connection logic
 ├── .env                          # Environment variables (excluded from submission)
