@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .instructions {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: black;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="password"] {
+            width: 300px;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            border: 1px solid gray;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .login-link {
+            margin-top: 20px;
+        }
+        .login-link button {
+            background-color: #007BFF;
+            color: white;
+        }
+        .login-link button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Task Management Tool</h1>
+    <p class="instructions">
+        Please fill out the form below to sign up. After signing up, you can log in on the next page, and then start managing your tasks.
+    </p>
+    
+    <form id="signUpForm" action="/signup" method="POST" onsubmit="showSuccessAlert(event)">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        
+        <button type="submit">Sign Up</button>
+    </form>
+
+    <!-- Login Link -->
+    <div class="login-link">
+        <p>Already have an account?</p>
+        <button onclick="window.location.href='/public/login.html'">Login now!</button>
+    </div>
+
+    <script>
+        function showSuccessAlert(event) {
+            alert('Your sign up was successful! You will now be directed to the Login Page to log into your account.');
+        }
+    </script>
+</body>
+</html>

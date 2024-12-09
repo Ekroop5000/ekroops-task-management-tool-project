@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        .instructions {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: black;
+        }
+        form {
+            display: inline-block;
+            text-align: left;
+            font-weight: bold;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"],
+        input[type="password"] {
+            width: 300px;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            border: 1px solid gray;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+        .signup-link {
+            margin-top: 20px;
+        }
+        .signup-link button {
+            background-color: #007BFF;
+            color: white;
+        }
+        .signup-link button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome Back to the Task Management Tool</h1>
+    <p class="instructions">
+        Please log into your account to access the Task Management Tool Page. Enter your username and password below.
+    </p>
+
+    <!-- Error message -->
+    <p id="error-message" class="error" style="display: none;"></p>
+
+    <form id="login-form" method="POST">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" required>
+        
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" required>
+        
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        const form = document.getElementById('login-form');
+        const errorMessage = document.getElementById('error-message');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault(); // Prevent default form submission
+            
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data),
+                });
+
+                if (response.ok) {
+                    alert('Your login was successful! You will now be directed to the Task Management Tool Page to add your tasks one at a time.');
+                    window.location.href = '/public/task_creation.html'; // Navigate on success
+                } else {
+                    const error = await response.json();
+                    errorMessage.textContent = error.message || 'Invalid username or password.';
+                    errorMessage.style.display = 'block';
+                }
+            } catch (err) {
+                errorMessage.textContent = 'Invalid username or password.';
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+
+    <!-- Sign Up Link -->
+    <div class="signup-link">
+        <p>Don't have an account?</p>
+        <button onclick="window.location.href='/public/sign_up.html'">Sign up now!</button>
+    </div>
+</body>
+</html>

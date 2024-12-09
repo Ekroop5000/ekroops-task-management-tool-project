@@ -36,7 +36,17 @@
     <div id="tasks"></div>
 
     <!-- Go back to Task Creation Page Button -->
-    <button class="goBackWindowButton1" onclick="alert('You will now be directed to the Task Management Tool Page'); window.location.href = '/'">Go back to the "Task Management Tool Page"</button>
+    <button class="goBackWindowButton" 
+            onclick="navigateToTaskPage()">
+        Go back to the "Task Management Tool Page"
+    </button>
+    
+    <script>
+        function navigateToTaskPage() {
+            alert('You will now be directed to the Task Management Tool Page.');
+            window.location.href = '/public/task_creation.html';
+        }
+    </script>
 
     <style>
         body, html {
@@ -65,7 +75,7 @@
             border: 1px solid #ccc;
             padding: 10px;
             margin: 5px 0;
-            height: 474px;
+            height: 426px;
             width: 30%;
             box-sizing: border-box;
         }
@@ -96,7 +106,7 @@
             background-color: #45a049;
         }
 
-        .goBackWindowButton1 {
+        .goBackWindowButton {
             font-family: 'Times New Roman', Times, serif;
             background-color: #4CAF50;
             font-size: 16px;
@@ -104,19 +114,11 @@
             margin-left: 11px;
         }
 
-        .goBackWindowButton2 {
-            font-family: 'Times New Roman', Times, serif;
-            background-color: #4CAF50;
-            font-size: 16px;
-            margin-top: 10px;
-        }
-
-        .goBackWindowButton1:hover,
-        .goBackWindowButton2:hover {
+        .goBackWindowButton:hover {
             background-color: #45a049;
         }
 
-        button, .goBackWindowButton1, .goBackWindowButton2 {
+        button, .goBackWindowButton {
             cursor: pointer;
         }
     </style>
@@ -151,8 +153,6 @@
 
                         <button type="submit">Update Your Task</button>
                         <button type="button" onclick="deleteTask('${task._id}', '${task.title}')">Delete Your Task</button>
-                        <!-- Second "Go back" button (inside task box) -->
-                        <button class="goBackWindowButton2" onclick="alert('You will now be directed to the Task Management Tool Page'); window.location.href = '/'">Go back to the "Task Management Tool Page"</button>
                     </form>
                 </div>
             `).join('');
