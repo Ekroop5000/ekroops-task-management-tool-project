@@ -9,7 +9,7 @@ Ekroop's Task Management Tool Project is a full-stack web application designed f
 
 ### Authentication:
 - **Sign Up**: New users can create an account using their email, username, and password.
-- **Login**: Existing users can log in using their username and password.
+- **Login**: Existing users can login using their username and password.
 
 ### Task Management:
 - **Task Creation**: Add new tasks with a title, description, priority, status, and due date.
